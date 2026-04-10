@@ -68,3 +68,17 @@ sudo systemctl restart rise-aio-monitor.service
 ```bash
 sudo ./uninstall-rise-aio-systemd.sh
 ```
+
+## License
+
+This project is licensed under the GNU GPL v3.0.
+
+See the [LICENSE](LICENSE) file for the full license text.
+
+## Credits
+
+This project includes protocol and implementation work derived from or inspired by:
+
+- https://github.com/bmortella/wc-aura-ice-linux
+
+The USB payload format used by this project was validated against public Linux implementations for the same `aa88:8666` Rise Aura Ice display device.
