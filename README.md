@@ -1,4 +1,4 @@
-# Rise AIO Monitor
+# Rise AIO Monitor (Watercooler Rise Aura)
 
 Monitor de temperatura para o display do watercooler Rise Aura Ice (`VID:PID aa88:8666`) no Linux.
 
