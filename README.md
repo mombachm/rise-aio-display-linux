@@ -1,8 +1,8 @@
 # Rise AIO Monitor
 
-Monitor de temperatura para o display do watercooler Rise Aura Ice (`VID:PID aa88:8666`) no Linux.
+Linux temperature monitor for the Rise Aura Ice water cooler display (`VID:PID aa88:8666`).
 
-O serviço lê a temperatura `CPU` do sensor `asusec` quando disponível, faz fallback para outros sensores quando necessário e envia a temperatura para o display via `PyUSB`.
+The service reads the `CPU` temperature from the `asusec` sensor when available, falls back to other sensors when needed, and sends the temperature to the display via `PyUSB`.
 
 ## Estrutura
 
