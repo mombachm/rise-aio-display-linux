@@ -4,17 +4,17 @@ Linux temperature monitor for the Rise Aura Ice water cooler display (`VID:PID a
 
 The service reads the `CPU` temperature from the `asusec` sensor when available, falls back to other sensors when needed, and sends the temperature to the display via `PyUSB`.
 
-## Estrutura
+## Structure
 
-- `rise_aio_usb_settemp.py`: script principal
-- `rise-aio-monitor-wrapper.sh`: wrapper instalado em `/usr/local/bin/rise-aio-monitor`
-- `rise-aio-monitor.service`: unit do `systemd`
-- `install-rise-aio-systemd.sh`: instala o serviço
-- `uninstall-rise-aio-systemd.sh`: remove o serviço
-- `rise-aio-monitor-status.sh`: mostra status/logs do serviço
-- `requirements.txt`: dependencias Python via `pip`, se preferir
+- `rise_aio_usb_settemp.py`: main script
+- `rise-aio-monitor-wrapper.sh`: wrapper installed to `/usr/local/bin/rise-aio-monitor`
+- `rise-aio-monitor.service`: `systemd` unit
+- `install-rise-aio-systemd.sh`: installs the service
+- `uninstall-rise-aio-systemd.sh`: removes the service
+- `rise-aio-monitor-status.sh`: shows service status/logs
+- `requirements.txt`: Python dependencies for `pip`, if preferred
 
-## Dependencias
+## Dependencies
 
 ### Arch Linux
 
@@ -22,48 +22,48 @@ The service reads the `CPU` temperature from the `asusec` sensor when available,
 sudo pacman -S python python-pyusb lm_sensors
 ```
 
-### Alternativa com pip
+### Alternative with pip
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
-## Instalacao
+## Installation
 
-No diretorio do projeto:
+From the project directory:
 
 ```bash
 sudo ./install-rise-aio-systemd.sh
 ```
 
-O instalador:
+The installer:
 
-- copia o script para `/usr/local/lib/rise-aio-monitor/rise_aio_usb_settemp.py`
-- instala o wrapper em `/usr/local/bin/rise-aio-monitor`
-- instala a unit em `/etc/systemd/system/rise-aio-monitor.service`
-- habilita e reinicia o servico
+- copies the script to `/usr/local/lib/rise-aio-monitor/rise_aio_usb_settemp.py`
+- installs the wrapper to `/usr/local/bin/rise-aio-monitor`
+- installs the unit to `/etc/systemd/system/rise-aio-monitor.service`
+- enables and restarts the service
 
-## Uso
+## Usage
 
-Ver status:
+Show status:
 
 ```bash
 ./rise-aio-monitor-status.sh
 ```
 
-Ver logs:
+Show logs:
 
 ```bash
 sudo journalctl -u rise-aio-monitor.service -f
 ```
 
-Reiniciar:
+Restart:
 
 ```bash
 sudo systemctl restart rise-aio-monitor.service
 ```
 
-## Remocao
+## Removal
 
 ```bash
 sudo ./uninstall-rise-aio-systemd.sh
