@@ -1,0 +1,13 @@
+[Unit]
+Description=Rise Aura Ice CPU Temperature Display
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/rise-aio-monitor watch --mode bmortella --period 1.0 --repeat 5 --interval 0.05
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
