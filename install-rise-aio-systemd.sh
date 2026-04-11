@@ -11,32 +11,32 @@ WRAPPER_SRC="$SCRIPT_DIR/rise-aio-monitor-wrapper.sh"
 WRAPPER_DST="/usr/local/bin/rise-aio-monitor"
 
 if [[ $EUID -ne 0 ]]; then
-  echo "rode com sudo: sudo $0"
+  echo "run with sudo: sudo $0"
   exit 1
 fi
 
 for path in "$SERVICE_SRC" "$SCRIPT_SRC" "$WRAPPER_SRC"; do
   if [[ ! -f "$path" ]]; then
-    echo "arquivo nao encontrado: $path"
+    echo "file not found: $path"
     exit 1
   fi
 done
 
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "python3 nao encontrado"
+  echo "python3 not found"
   exit 1
 fi
 
 if ! python3 -c 'import usb.core, usb.util' >/dev/null 2>&1; then
-  echo "PyUSB nao encontrado. Instale com:"
+  echo "PyUSB not found. Install it with:"
   echo "  sudo pacman -S python-pyusb"
-  echo "ou:"
+  echo "or:"
   echo "  python3 -m pip install -r \"$SCRIPT_DIR/requirements.txt\""
   exit 1
 fi
 
 if ! command -v sensors >/dev/null 2>&1; then
-  echo "sensors nao encontrado. Instale com:"
+  echo "sensors not found. Install it with:"
   echo "  sudo pacman -S lm_sensors"
   exit 1
 fi

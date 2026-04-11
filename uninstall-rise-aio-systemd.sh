@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ $EUID -ne 0 ]]; then
-  echo "rode com sudo: sudo $0"
+  echo "run with sudo: sudo $0"
   exit 1
 fi
 
@@ -13,4 +13,4 @@ rm -f /usr/local/lib/rise-aio-monitor/rise_aio_usb_settemp.py
 rmdir /usr/local/lib/rise-aio-monitor 2>/dev/null || true
 systemctl daemon-reload
 
-echo "rise-aio-monitor removido"
+echo "rise-aio-monitor removed"
